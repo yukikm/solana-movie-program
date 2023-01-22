@@ -14,6 +14,9 @@ pub enum ReviewError {
 
     #[error("Rating greater than 5 or less than 1")]
     InvalidRating,
+
+    #[error("Accounts do not match")]
+    IncorrectAccountError,
 }
 
 impl From<ReviewError> for ProgramError {
@@ -21,3 +24,4 @@ impl From<ReviewError> for ProgramError {
         ProgramError::Custom(e as u32)
     }
 }
+
